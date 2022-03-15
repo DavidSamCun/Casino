@@ -1,6 +1,6 @@
-package com.github.zipcodewilmington.casino.items;
+package com.github.zipcodewilmington.casino.items.Cards;
 
-public class Card3 {
+public class CardNonEnum {
 
     private int suit;
     private int value;
@@ -15,7 +15,7 @@ public class Card3 {
     public final static int queen = 12;
     public final static int king = 13;
 
-    public Card3(int value, int suit){
+    public CardNonEnum(int value, int suit){
         if ( suit <= -1 || suit >= 4){
             throw new IllegalArgumentException("Not a suit! Spades is 0, Hearts is 1, Diamonds is 2, and Clubs is 3");
         }

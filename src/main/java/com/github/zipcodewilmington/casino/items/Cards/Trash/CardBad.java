@@ -1,6 +1,6 @@
-package com.github.zipcodewilmington.casino.items;
+package com.github.zipcodewilmington.casino.items.Cards;
 
-public class Card {
+public class CardBad {
 
     public enum Suit {
         Hearts, Spades, Diamonds, Clubs
@@ -30,7 +30,7 @@ public class Card {
     private Suit suit;
     private cardValue cardVal;
 
-    public Card(cardValue value, Suit suit){
+    public CardBad(cardValue value, Suit suit){
         this.cardVal = value;
         this.suit = suit;
     }
