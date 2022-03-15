@@ -1,6 +1,6 @@
-package com.github.zipcodewilmington.casino.items;
+package com.github.zipcodewilmington.casino.items.Cards;
 
-public enum cards2 {
+public enum CardValue {
 
     ACE(1),
     TWO(2),
@@ -18,7 +18,7 @@ public enum cards2 {
 
     private int value;
 
-    private cards2(int value){
+    private CardValue(int value){
         this.value = value;
     }
 

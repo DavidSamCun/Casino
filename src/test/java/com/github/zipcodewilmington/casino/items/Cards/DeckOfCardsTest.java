@@ -1,9 +1,9 @@
-package com.github.zipcodewilmington;
+package com.github.zipcodewilmington.casino.items.Cards;
 
 import com.github.zipcodewilmington.casino.items.Cards.DeckOfCards;
 import org.junit.Test;
 
-class DeckOfCardsTest {
+public class DeckOfCardsTest {
 
     @Test
     public void deckOfCardsTest(){
