@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.casino.items.Cards;
+package com.github.zipcodewilmington.casino.items.Cards.Trash;
 
 public class CardNonEnum {
 
