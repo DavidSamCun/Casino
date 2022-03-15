@@ -23,4 +23,11 @@ public class Card3 {
             throw new IllegalArgumentException("Not a card value! Ace is 1 and King is 13!");
         }
     }
+
+    public int getSuit(){
+        return this.suit;
+    }
+
+
+
 }
