@@ -51,10 +51,10 @@ public class CardCollectionsTest {
         deck.deal(player1, 2);
         player1.listCard();
 
-        System.out.println(player1.getCard(0).getCardvalue());
-        System.out.println(player1.getCard(0).getCardvalue().getCardValue());
+        System.out.println(player1.getCard(0).getCardRank());
+        System.out.println(player1.getCard(0).getCardRank().getCardValue());
 
-        int cardValue = player1.getCard(0).getCardvalue().getCardValue();
+        int cardValue = player1.getCard(0).getCardRank().getCardValue();
         System.out.println(cardValue);
     }
 

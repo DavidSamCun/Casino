@@ -64,7 +64,7 @@ public class CardCollections {
         Iterator cardIterator = cards.iterator();
         while(cardIterator.hasNext()) {
             Card aCard = (Card) cardIterator.next();   //            Card aCard = cardIterator.next();
-            System.out.println(aCard.getCardvalue() + " of " + aCard.getSuit());
+            System.out.println(aCard.getCardRank() + " of " + aCard.getSuit());
         }
 
     }

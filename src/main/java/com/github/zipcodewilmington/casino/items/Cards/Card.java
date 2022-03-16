@@ -18,7 +18,7 @@ public class Card {
         this.suit = suit;
     }
 
-    public CardValue getCardvalue(){
+    public CardValue getCardRank(){
         return cardvalue;
     }
 
