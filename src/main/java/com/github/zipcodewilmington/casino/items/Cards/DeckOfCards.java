@@ -29,14 +29,14 @@ public class DeckOfCards extends CardCollections {
 //            System.out.println(aCard.getCardvalue() + " of " + aCard.getSuit());
 //        }
 
-
-
     }
 
-//    public void deal(CardCollections to, int amnt){
-//        for (int i = 0; i < amnt; i++){
-//            Card card = popCard();
-//            to.addCard(card);
+//    public void listCard(){
+//
+//        Iterator cardIterator = cards.iterator();
+//        while(cardIterator.hasNext()) {
+//            Card aCard = (Card) cardIterator.next();   //            Card aCard = cardIterator.next();
+//            System.out.println(aCard.getCardvalue() + " of " + aCard.getSuit());
 //        }
 //
 //    }

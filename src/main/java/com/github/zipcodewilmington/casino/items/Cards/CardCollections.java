@@ -1,6 +1,7 @@
 package com.github.zipcodewilmington.casino.items.Cards;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class CardCollections {
@@ -56,6 +57,16 @@ public class CardCollections {
 
     public void clear(){
         cards.clear();
+    }
+
+    public void listCard(){
+
+        Iterator cardIterator = cards.iterator();
+        while(cardIterator.hasNext()) {
+            Card aCard = (Card) cardIterator.next();   //            Card aCard = cardIterator.next();
+            System.out.println(aCard.getCardvalue() + " of " + aCard.getSuit());
+        }
+
     }
 
 }

@@ -4,13 +4,59 @@ import org.junit.Test;
 
 public class CardCollectionsTest {
 
-    @Test
+    @Test   //Pass
     public void deckOfCardsTest(){
         DeckOfCards deck = new DeckOfCards("BlackJack");
-        System.out.println(deck);
-
+        deck.listCard();
     }
 
+    @Test   //Pass
+    public void clearDeck(){
+        DeckOfCards deck = new DeckOfCards("dealHandTest");
+        deck.listCard();
+        deck.clear();
+        System.out.println("Break");
+        deck.listCard();
+    }
+
+    @Test
+    public void dealHand(){ //PASS
+        DeckOfCards deck = new DeckOfCards("dealHandTest");
+        Hand player1 = new Hand("Player1");
+
+        player1.listCard();
+        System.out.println("Deal Phase");
+        deck.deal(player1, 2);
+        player1.listCard();
+    }
+
+    @Test
+    public void dealHand2(){ //PASS
+        DeckOfCards deck = new DeckOfCards("dealHandTest");
+        Hand player1 = new Hand("Player1");
+        Hand player2 = new Hand("Player2");
+        player1.listCard();
+        System.out.println("Deal Phase");
+        deck.deal(player1, 2);
+        player1.listCard();
+    }
+
+    @Test
+    public void getValue(){    //PASS
+        DeckOfCards deck = new DeckOfCards("dealHandTest");
+        Hand player1 = new Hand("Player1");
+
+        player1.listCard();
+        System.out.println("Deal Phase");
+        deck.deal(player1, 2);
+        player1.listCard();
+
+        System.out.println(player1.getCard(0).getCardvalue());
+        System.out.println(player1.getCard(0).getCardvalue().getCardValue());
+
+        int cardValue = player1.getCard(0).getCardvalue().getCardValue();
+        System.out.println(cardValue);
+    }
 
 
 
