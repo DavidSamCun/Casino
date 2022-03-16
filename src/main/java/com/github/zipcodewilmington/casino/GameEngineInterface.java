@@ -3,6 +3,9 @@ package com.github.zipcodewilmington.casino;
 import java.util.ArrayList;
 
 public interface GameEngineInterface {
+
+//     PlayerType extends Person;
+
     //Starts game
      void start();
      //calls the game to play

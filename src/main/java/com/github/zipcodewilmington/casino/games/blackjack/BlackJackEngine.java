@@ -3,14 +3,18 @@ package com.github.zipcodewilmington.casino.games.blackjack;
 import com.github.zipcodewilmington.casino.Game;
 import com.github.zipcodewilmington.casino.GameEngine;
 import com.github.zipcodewilmington.casino.Person;
+import com.github.zipcodewilmington.casino.games.tictactoe.TicTacToeGame;
+import com.github.zipcodewilmington.casino.games.tictactoe.TicTacToePlayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BlackJackEngine extends GameEngine {
 
-    public BlackJackEngine(Game game, List<Person> players) {
+    public BlackJackEngine(BlackJackGame game, ArrayList<TicTacToePlayer> players) {
         super(game, players);
     }
+
 
     @Override
     public void start() {
@@ -32,7 +36,7 @@ public class BlackJackEngine extends GameEngine {
 
     }
 
-    @Override
+
     public Iterable<Person> getPlayers() {
         return null;
     }

@@ -22,6 +22,8 @@ public class Person implements PlayerInterface{
     private String lName;
     private int funds;
 
+
+
     public CasinoAccount getArcadeAccount() {
        return null;
     }
