@@ -7,7 +7,7 @@ public class DeckOfCardsTest {
 
     @Test
     public void deckOfCardsTest(){
-        DeckOfCards deck = new DeckOfCards();
+        DeckOfCards deck = new DeckOfCards("BlackJack");
         System.out.println(deck);
 
     }
