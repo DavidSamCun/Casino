@@ -1,12 +1,15 @@
 package com.github.zipcodewilmington.casino;
 
+import com.github.zipcodewilmington.casino.games.tictactoe.TicTacToePlayer;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GameEngine implements GameEngineInterface {
+public abstract class GameEngine <PlayerType extends PlayerInterface> implements GameEngineInterface {
     private Game game;
-    private List<Person> players;
+    private List<PlayerType> players;
 
-    public GameEngine(Game game, List<Person> players) {
+    public GameEngine(Game game, ArrayList<PlayerType> players) {
         this.game = game;
         this.players = players;
     }
