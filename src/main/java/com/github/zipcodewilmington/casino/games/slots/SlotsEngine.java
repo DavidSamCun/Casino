@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SlotsEngine extends GameEngine {
 
-    public SlotsEngine(Game game, List<Person> players) {
+    public SlotsEngine(Game game, List<SlotsPlayer> players) {
         super(game, players);
     }
 

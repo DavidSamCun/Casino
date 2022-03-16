@@ -3,10 +3,8 @@ package com.github.zipcodewilmington.casino.games.tictactoe;
 import com.github.zipcodewilmington.casino.Game;
 import com.github.zipcodewilmington.casino.GameEngine;
 import com.github.zipcodewilmington.casino.Person;
-import com.github.zipcodewilmington.casino.PlayerInterface;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TicTacToeEngine extends GameEngine {
 
@@ -16,13 +14,25 @@ public class TicTacToeEngine extends GameEngine {
 
 
     public void start() {
-       TicTacToeGame tTT = new TicTacToeGame();
-       while(!tTT.isWinner()){
-           tTT.turn();
-       }
-       //ask if you want to exit
+        String result = "";
+        int[] move = new int[]{,};
+        TicTacToeGame tTT = new TicTacToeGame();
+        for(int x=0;x< players.size();x++) {
 
+            while (!tTT.isWinner()) {
+                TicTacToePlayer player = players.get(x);
+                move = player.getMove();
+                result = tTT.turn(move);
+                if (result.equals("Not a valid move")) {
+                    player.getMove();
+                } else if (result.equals("Board Full")) {
+                    System.out.println("It is a tie");
+                    return;
+                }
+            }
+            //ask if you want to exit
 
+        }
     }
 
 

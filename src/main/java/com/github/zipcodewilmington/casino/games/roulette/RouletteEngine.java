@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RouletteEngine extends GameEngine {
 
-    public RouletteEngine(Game game, List<Person> players) {
+    public RouletteEngine(Game game, List<RoulettePlayer> players) {
         super(game, players);
     }
 

@@ -13,16 +13,38 @@ public class TicTacToeGame extends Game {
         }
         return super.isWinner();
     }
-    public void turn(){
+    public String turn(int[] move){
         //player turn pick a square update the board
-        // cpu turn pick a remaining spot
+        if (boardNotFull()) {
+            if (board[move[0]][move[1]] == ' ') {
+                board[move[0]][move[1]] = 'X';
+            } else return "Not a valid Move";
 
-        // return to play
+            if (!isInFavorOfX()) {
+                //cpu takes a move
+                board[2][2] = 'O';
+            }
+            // return to play
+        }else return "Board Full";
+        return "";
     }
 
 
     public  void board(Character[][] matrix) {
         board = matrix;
+    }
+
+    public boolean boardNotFull(){
+        boolean foundNull = false;
+        while(!foundNull){
+            for(int i =0; i<=2;i++){
+                for(int j = 0; j<=2;j++){
+                    if(board[i][j] == null)
+                        return true;
+                }
+            }
+        }
+        return foundNull;
     }
 
     public Boolean checkRows(char answer) {

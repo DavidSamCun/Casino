@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BlackJackEngine extends GameEngine {
 
-    public BlackJackEngine(Game game, List<Person> players) {
+    public BlackJackEngine(Game game, List<BlackJackPlayer> players) {
         super(game, players);
     }
 

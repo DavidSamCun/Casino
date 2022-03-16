@@ -7,9 +7,9 @@ import java.util.List;
 
 public abstract class GameEngine <PlayerType extends PlayerInterface> implements GameEngineInterface {
     private Game game;
-    private List<PlayerType> players;
+    protected List<PlayerType> players;
 
-    public GameEngine(Game game, ArrayList<PlayerType> players) {
+    public GameEngine(Game game, List<PlayerType> players) {
         this.game = game;
         this.players = players;
     }
