@@ -32,7 +32,7 @@ public class SlotsEngine extends GameEngine {
 
     }
 
-    @Override
+
     public Iterable<Person> getPlayers() {
         return null;
     }

@@ -29,6 +29,23 @@ public class TicTacToeGame extends Game {
         return "";
     }
 
+    public int[] cpuMove(){
+        int y = 0;
+        for(int x =0; x<2;x++){
+            if(board[y][x]=='O'&&board[y+1][x] == 'O'){
+                if(board[y+3][x] == null){
+                    board[y+3][x] = 'O';
+                }
+            }
+        }
+
+
+        if (board[1][1] == null) {
+            return new int []{1,1};
+        }
+        return new int[] {0,0};
+        }
+
 
     public  void board(Character[][] matrix) {
         board = matrix;
@@ -126,5 +143,7 @@ public class TicTacToeGame extends Game {
         return "Tie";
     }
 
+     public void printBoard(){
 
+     }
 }
