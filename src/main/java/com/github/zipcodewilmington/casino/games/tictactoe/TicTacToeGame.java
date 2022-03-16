@@ -2,8 +2,11 @@ package com.github.zipcodewilmington.casino.games.tictactoe;
 
 import com.github.zipcodewilmington.casino.Game;
 
+import java.net.SocketTimeoutException;
+import java.sql.SQLOutput;
+
 public class TicTacToeGame extends Game {
-    private Character [][] board;
+    Character [][] board;
 
     @Override
     public boolean isWinner() {
@@ -144,6 +147,17 @@ public class TicTacToeGame extends Game {
     }
 
      public void printBoard(){
+        for(int i = 0; i <=2; i++){
+             for (int j = 0; j <= 2;j++){
+                 System.out.print(board[i][j]+ " ");
+                 if(j<2){
+                     System.out.print(" | ");
+                 }
 
+                 }
+            if(i<2){
+                System.out.println("\n___________");
+         }
+     }
      }
 }

@@ -20,11 +20,11 @@ public class TicTacToeEngine extends GameEngine {
         for(int x=0;x< players.size();x++) {
 
             while (!tTT.isWinner()) {
-                TicTacToePlayer player = players.get(x);
-                move = player.getMove();
+               // TicTacToePlayer player = players.get(x);
+                //move = player.getMove();
                 result = tTT.turn(move);
                 if (result.equals("Not a valid move")) {
-                    player.getMove();
+                   // player.getMove();
                 } else if (result.equals("Board Full")) {
                     System.out.println("It is a tie");
                     return;
