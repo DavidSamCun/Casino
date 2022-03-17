@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GameEngine <PlayerType extends PlayerInterface> implements GameEngineInterface {
-    private Game game;
-    protected List<PlayerType> players;
+    public Game game;
+    public List<PlayerType> players = new ArrayList<>();
 
     public GameEngine(Game game, List<PlayerType> players) {
         this.game = game;
-        this.players = players;
+        for(PlayerType p :players)
+        this.players.add(p);
     }
 
     @Override

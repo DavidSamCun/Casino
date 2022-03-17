@@ -2,11 +2,12 @@ package com.github.zipcodewilmington.casino.games.tictactoe;
 
 import com.github.zipcodewilmington.casino.Game;
 
-import java.net.SocketTimeoutException;
-import java.sql.SQLOutput;
-
 public class TicTacToeGame extends Game {
     Character [][] board;
+
+    public TicTacToeGame(){
+        board = new Character[][]{{' ', ' ', ' '}, {' ', ' ', ' '},{' ',' ',' '}};
+    }
 
     @Override
     public boolean isWinner() {
@@ -16,20 +17,17 @@ public class TicTacToeGame extends Game {
         }
         return super.isWinner();
     }
-    public String turn(int[] move){
+    @Override
+    public String turn(int[] move, char marker){
         //player turn pick a square update the board
+        printBoard();
         if (boardNotFull()) {
             if (board[move[0]][move[1]] == ' ') {
-                board[move[0]][move[1]] = 'X';
+                board[move[0]][move[1]] = marker;
             } else return "Not a valid Move";
-
-            if (!isInFavorOfX()) {
-                //cpu takes a move
-                board[2][2] = 'O';
-            }
             // return to play
         }else return "Board Full";
-        return "";
+        return " ";
     }
 
     public int[] cpuMove(){
@@ -149,14 +147,16 @@ public class TicTacToeGame extends Game {
      public void printBoard(){
         for(int i = 0; i <=2; i++){
              for (int j = 0; j <= 2;j++){
-                 System.out.print(board[i][j]+ " ");
+                 if(board[i][j] != null) {
+                     System.out.print(board[i][j] + "");
+                 } else System.out.println(" ");
                  if(j<2){
-                     System.out.print(" | ");
+                     System.out.print("|");
                  }
 
                  }
             if(i<2){
-                System.out.println("\n___________");
+                System.out.println("\n--+--+--");
          }
      }
      }

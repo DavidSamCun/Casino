@@ -11,6 +11,7 @@ public class TicTacToePlayer implements PlayerInterface {
   public void TicTacToePlayer(Person player){
       this.player = player;
   }
+
   public int[] getMove() {
       Scanner scanner = new Scanner(System.in);
       int x =0, y =0;
@@ -21,7 +22,7 @@ public class TicTacToePlayer implements PlayerInterface {
           System.out.println(" "+scanner.next()+ " isn't a number!");
       }
       try{
-          System.out.println("Please enter a column number: ");
+          System.out.println("Please enter a row number: ");
           y = scanner.nextInt();
       }catch (InputMismatchException e){
           System.out.println(" "+scanner.next()+ " isn't a number!");

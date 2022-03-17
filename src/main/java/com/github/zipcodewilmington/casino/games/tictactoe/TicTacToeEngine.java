@@ -15,29 +15,30 @@ public class TicTacToeEngine extends GameEngine {
 
     public void start() {
         String result = "";
-        int[] move = new int[]{,};
-        TicTacToeGame tTT = new TicTacToeGame();
-        for(int x=0;x< players.size();x++) {
+        char markerX = 'X', markerY = 'Y';
+        int[] move = new int[2];
+            while (!game.isWinner()) {
+                for (int x = 0; x < players.size(); x++) {
+                    TicTacToePlayer player = (TicTacToePlayer) players.get(x);
+                    do {
+                        move = player.getMove();
+                        if (x == 0) {
+                            result = game.turn(move, markerX);
+                        } else result = game.turn(move, markerY);
+                        if (result.equals("Board Full")) {
+                            System.out.println("It is a tie");
+                            return;
+                        }
+                }while(result.equals("Not a valid move"));
+                //ask if you want to exit
 
-            while (!tTT.isWinner()) {
-               // TicTacToePlayer player = players.get(x);
-                //move = player.getMove();
-                result = tTT.turn(move);
-                if (result.equals("Not a valid move")) {
-                   // player.getMove();
-                } else if (result.equals("Board Full")) {
-                    System.out.println("It is a tie");
-                    return;
-                }
             }
-            //ask if you want to exit
-
         }
     }
 
 
     public Game getGame() {
-        return null;
+       return this.game;
     }
 
     public void exitGame() {
@@ -48,7 +49,6 @@ public class TicTacToeEngine extends GameEngine {
 
     }
 
-    public Iterable<Person> getPlayers() {
-        return null;
-    }
+//    public Iterable<Person> getPlayers() {
+//    }
 }
