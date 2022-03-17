@@ -11,18 +11,25 @@ import java.util.Collections;
 
 public class BlackJackGame extends Game implements GamblingInterface {
 
-        DeckOfCards blackJackDeck;
-        Hand dealer = new Hand("Dealer");
+//        public DeckOfCards blackJackDeck;
+//        public Hand dealer;
+
+        public DeckOfCards blackJackDeck = new DeckOfCards("BlackJack");
+        public Hand dealer = new Hand("Dealer");
 
         public void BlackJackGame(){
-                blackJackDeck = new DeckOfCards("BlackJack");
+                this.blackJackDeck = new DeckOfCards("BlackJack");
+                this.dealer = new Hand("Dealer");
         }
 
+        public void newDeck(){
+                this.blackJackDeck= new DeckOfCards("BlackJack");
+        }
 
         public void blackJackDeal(ArrayList<BlackJackPlayer> players){                     //Deals to players
                 for( int i = 0; i<2; i++){
-                        for(int j = 0; j < players.size(); i++){
-                                blackJackDeck.deal(players.get(i).getHand(), 1);
+                        for(int j = 0; j < players.size(); j++){
+                                blackJackDeck.deal(players.get(j).getHand(), 1);
                         }
                         blackJackDeck.deal(dealer, 1);
                 }
