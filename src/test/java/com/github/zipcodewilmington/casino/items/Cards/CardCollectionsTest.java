@@ -1,5 +1,6 @@
 package com.github.zipcodewilmington.casino.items.Cards;
 
+import com.github.zipcodewilmington.casino.games.blackjack.BlackJackPlayer;
 import org.junit.Test;
 
 public class CardCollectionsTest {
@@ -56,6 +57,18 @@ public class CardCollectionsTest {
 
         int cardValue = player1.getCard(0).getCardRank().getCardValue();
         System.out.println(cardValue);
+    }
+
+    @Test
+    public void dealPlayerHand(){
+        DeckOfCards deck = new DeckOfCards("dealHandTest");
+        BlackJackPlayer player1 = new BlackJackPlayer();
+//        System.out.println(player1.getHand().display());
+        player1.getHand().listCard();
+        System.out.println("deal");
+        deck.deal(player1.getHand(), 2);
+        player1.getHand().listCard();
+        //Hand show = player1.getHand();
     }
 
 

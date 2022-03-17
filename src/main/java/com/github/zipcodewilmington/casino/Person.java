@@ -1,6 +1,9 @@
 package com.github.zipcodewilmington.casino;
 
+import java.util.Scanner;
+
 public class Person implements PlayerInterface{
+    Scanner scanner = new Scanner(System.in);
 
     public int getFunds() {
         return funds;
