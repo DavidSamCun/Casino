@@ -19,7 +19,7 @@ public class BlackJackGame extends Game implements GamblingInterface {
         }
 
 
-        public void deal(ArrayList<BlackJackPlayer> players){                     //Deals to players
+        public void blackJackDeal(ArrayList<BlackJackPlayer> players){                     //Deals to players
                 for( int i = 0; i<2; i++){
                         for(int j = 0; j < players.size(); i++){
                                 blackJackDeck.deal(players.get(i).getHand(), 1);
