@@ -31,19 +31,6 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
         return hand;
     }
 
-//    public int handValue(){
-//        int value = 0;
-//
-//        for (int i = 0; i < hand.size(); i++){
-//            value += hand.getCard(i).getCardRank().getCardValue();
-//        }
-//
-//        return value;
-//    }
-
-    //    public getHand(){
-//        this.han
-
     public int blackJhandValue() {  //Check for ACE later
         int value = 0;
         Boolean AceExists = false;
@@ -69,17 +56,13 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
         return value;
     }
 
-    public boolean playStatusCheck(){
-        bustCheck();
-        blackJackCheck();
-        return !bust && !blackJ && !stand;
-    }
+
 
     public void hitMe(DeckOfCards deck){
         deck.deal(hand,1);
     }
 
-    public void dealerHit(DeckOfCards deck){
+    public void dealerHit(DeckOfCards deck){        //Passed. Stops at 17 or above
         while(blackJhandValue() < 17){
             hitMe(deck);
         }
@@ -99,6 +82,17 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
 
     public void setStand(){
         stand = true;
+    }
+
+    public void playerStatusCheck(){
+        bustCheck();
+        blackJackCheck();
+    }
+
+    public boolean playStatusCheck(){
+        bustCheck();
+        blackJackCheck();
+        return !bust && !blackJ && !stand;
     }
 
     public void reset(){

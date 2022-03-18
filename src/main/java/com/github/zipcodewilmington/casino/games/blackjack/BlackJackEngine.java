@@ -24,11 +24,13 @@ public class BlackJackEngine extends GameEngine {
     @Override
     public void start() {
 
+
+
     }
 
     @Override
     public Game getGame() {
-        return null;
+        return new BlackJackGame();
     }
 
     @Override

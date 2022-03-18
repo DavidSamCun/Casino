@@ -1,5 +1,6 @@
 package com.github.zipcodewilmington.casino.games.blackjack;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -85,6 +86,146 @@ class BlackJackGameTest2 {
         testGame.dealer.getHand().listCard();
         System.out.println(testGame.dealer.blackJhandValue());
 
+    }
+
+    @Test
+    void playHitTest() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        String choice = "hit";
+
+        //When
+        testGame.blackJackDeal(players);
+
+        //Player1 Hand
+        System.out.println("Player 1");
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+
+        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+        //players.get(1).getHand().listCard();
+
+    }
+
+    @Test
+    void standStatusCheck() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        String choice = "stand";
+
+        //When
+        testGame.blackJackDeal(players);
+
+        //Player1 Hand
+        System.out.println("Player 1");
+
+        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+        System.out.println(players.get(0).stand);
+        System.out.println(players.get(0).playStatusCheck());
+
+    }
+
+    @Test
+    void playStatusCheck() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        String choice = "hit";
+
+        //When
+        testGame.blackJackDeal(players);
+
+        //Player1 Hand
+        System.out.println("Player 1");
+
+        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+        System.out.println(players.get(0).playStatusCheck());
+
+    }
+
+    @Test
+    void dealHitTest() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+
+        //When
+        testGame.blackJackDeal(players);
+        System.out.println("\nDealer\n");
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+
+        System.out.println("\nHit\n");
+
+        testGame.dealer.dealerHit(testGame.blackJackDeck);
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+
+    }
+
+    @Test
+    void dealStatusTest() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+
+        //When
+        testGame.blackJackDeal(players);
+        System.out.println("\nDealer\n");
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+
+        System.out.println("\nHit\n");
+
+        testGame.dealer.dealerHit(testGame.blackJackDeck);
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+        System.out.println(testGame.dealer.playStatusCheck());
+        System.out.println(testGame.dealer.blackJ);
+
+
+    }
+
+    @Test
+    void setStandTest(){
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        boolean expected = true;
+
+        //When
+        testGame.blackJackDeal(players);
+        players.get(0).setStand();
+        boolean actual = players.get(0).stand;
+                //Then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void resetTest(){
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        boolean expected = false;
+
+        //When
+        testGame.blackJackDeal(players);
+        players.get(0).setStand();
+        players.get(0).reset();
+        boolean actual = players.get(0).stand;
+        //Then
+        assertEquals(expected, actual);
     }
 
 }
