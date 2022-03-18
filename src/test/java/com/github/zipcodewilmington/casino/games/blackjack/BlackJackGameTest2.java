@@ -328,7 +328,8 @@ class BlackJackGameTest2 {
 
         int playVal = 1;
         for (BlackJackPlayer player: players) {
-            System.out.println("Player " + playVal + " " + player.win);
+            System.out.println("Player " + playVal + " win? " + player.win);
+            System.out.println("Player " + playVal + " Tie? " + player.tie);
             playVal++;
         }
     }

@@ -12,17 +12,17 @@ public class BlackJackGame extends Game implements GamblingInterface {
         public DeckOfCards blackJackDeck;
         public BlackJackPlayer dealer;
 
-        public BlackJackGame(){
+        public BlackJackGame() {
                 this.blackJackDeck = new DeckOfCards("BlackJack");
                 this.dealer = new BlackJackPlayer();
         }
 
-        public void newDeck(){
-                this.blackJackDeck= new DeckOfCards("BlackJack");
+        public void newDeck() {
+                this.blackJackDeck = new DeckOfCards("BlackJack");
         }
 
-        public void blackJackDeal(ArrayList<BlackJackPlayer> players){                     //Deals to players
-                for( int i = 0; i<2; i++){
+        public void blackJackDeal(ArrayList<BlackJackPlayer> players) {                     //Deals to players
+                for (int i = 0; i < 2; i++) {
                         for (BlackJackPlayer player : players) {
                                 blackJackDeck.deal(player.getHand(), 1);
                         }
@@ -73,10 +73,6 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 }
         }
 
-        public boolean playStatus(BlackJackPlayer bPlayer){
-                return bPlayer.playStatusCheck();
-        }
-
         public void getWinner(BlackJackPlayer bPlayer) {
                 if (bPlayer.blackJ && !dealer.blackJ) {
                         bPlayer.win = true;
@@ -85,10 +81,13 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 } else if (!bPlayer.bust && !dealer.bust) {
                         if (bPlayer.blackJhandValue() > dealer.blackJhandValue()) {
                                 bPlayer.win = true;
+                        } else if (bPlayer.blackJhandValue() == dealer.blackJhandValue()) {
+                                bPlayer.tie = true;
+
                         }
+
                 }
         }
-
 }
 
 
