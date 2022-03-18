@@ -1,11 +1,15 @@
 package com.github.zipcodewilmington.casino.games.blackjack;
 
+import com.github.zipcodewilmington.casino.items.Cards.Card;
+import com.github.zipcodewilmington.casino.items.Cards.CardValue;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static com.github.zipcodewilmington.casino.items.Cards.CardValue.ACE;
+import static com.github.zipcodewilmington.casino.items.Cards.Suit.HEARTS;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BlackJackGameTest2 {
@@ -226,6 +230,53 @@ class BlackJackGameTest2 {
         boolean actual = players.get(0).stand;
         //Then
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void aceDealerTest(){
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+
+        //When
+        testGame.blackJackDeal(players);
+        System.out.println("\nDealer\n");
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+
+        System.out.println("\nHit\n");
+
+        testGame.dealer.dealerHit(testGame.blackJackDeck);
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+        System.out.println(testGame.dealer.playStatusCheck());
+        System.out.println(testGame.dealer.blackJ);
+
+    }
+
+    @Test
+    void playAceTest() {          //Dealing to players and
+
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        String choice = "hit";
+
+        //When
+        testGame.blackJackDeal(players);
+        players.get(0).getHand().addCard(new Card(ACE, HEARTS));
+
+        //Player1 Hand
+        System.out.println("Player 1");
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+
+        players.get(0).getHand().addCard(new Card(ACE, HEARTS));
+        players.get(0).getHand().addCard(new Card(ACE, HEARTS));
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+        //players.get(1).getHand().listCard();
+
     }
 
 }

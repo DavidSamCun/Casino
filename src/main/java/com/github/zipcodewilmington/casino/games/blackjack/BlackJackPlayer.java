@@ -3,6 +3,7 @@ package com.github.zipcodewilmington.casino.games.blackjack;
 import com.github.zipcodewilmington.casino.Person;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 import com.github.zipcodewilmington.casino.items.Cards.Card;
+import com.github.zipcodewilmington.casino.items.Cards.CardValue;
 import com.github.zipcodewilmington.casino.items.Cards.DeckOfCards;
 import com.github.zipcodewilmington.casino.items.Cards.Hand;
 
@@ -33,17 +34,20 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
 
     public int blackJhandValue() {  //Check for ACE later
         int value = 0;
-        Boolean AceExists = false;
         int aceCount = 0;
         for (int i = 0; i < getHand().size(); i++) {
-//            if(getCard(i).getCardRank() == CardValue.ACE){
-//                AceExists = true;
-//                aceCount++
-//            }
-            if(getHand().getCard(i).getCardRank().getCardValue() > 10){
+            if(getHand().getCard(i).getCardRank() == CardValue.ACE){
+                value+=11;
+                aceCount++;
+            } else if (getHand().getCard(i).getCardRank().getCardValue() > 10){
                 value+= 10;
             } else {
                 value += getHand().getCard(i).getCardRank().getCardValue();
+            }
+        }
+        for (int i = 0; i < aceCount; i++) {
+            if (aceCount > 0 && value > 21) {
+                value -= 10;
             }
         }
         //Need to work on ACE scenario
