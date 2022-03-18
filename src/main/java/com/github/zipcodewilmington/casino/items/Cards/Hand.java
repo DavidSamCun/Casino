@@ -14,6 +14,10 @@ public class Hand extends CardCollections {
 
     }
 
+    public void show1Card(int i){
+        System.out.println(getCard(i).getCardRank() + " of " + getCard(i).getSuit());
+    }
+
 /*    public int BlackJhandValue() {
         int value = 0;
         Boolean AceExists = false;

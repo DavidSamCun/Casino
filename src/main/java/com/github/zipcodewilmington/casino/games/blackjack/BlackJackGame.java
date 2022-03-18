@@ -19,7 +19,6 @@ public class BlackJackGame extends Game implements GamblingInterface {
         public DeckOfCards blackJackDeck;
         public BlackJackPlayer dealer;
         Scanner in = new Scanner(System.in);
-        //public Hand dealer = new Hand("Dealer");
 
         public BlackJackGame(){
                 this.blackJackDeck = new DeckOfCards("BlackJack");
@@ -39,6 +38,9 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 }
         }
 
+//        public void showPlayerHand(BlackJackPlayer bPlayer){
+//                bPlayer.getHand()
+//        }
 
 //        public void playerPlay(ArrayList<BlackJackPlayer> players, DeckOfCards deck){
 //                boolean stand = false;
@@ -65,7 +67,7 @@ public class BlackJackGame extends Game implements GamblingInterface {
 //                }
 //        }
 
-        public void playerHitMe(BlackJackPlayer bPlayer, DeckOfCards bDeck, String choice) {
+        public void playerPhase(BlackJackPlayer bPlayer, DeckOfCards bDeck, String choice) {
                 switch (choice.toLowerCase(Locale.ROOT)) {
                         case "hit":
                                 bPlayer.hitMe(bDeck);
@@ -74,6 +76,8 @@ public class BlackJackGame extends Game implements GamblingInterface {
                         case "stand":
                                 bPlayer.stand = true;
                                 break;
+                        default:
+                                System.out.println("Invalid Entry");
                 }
         }
 
@@ -81,9 +85,16 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 return bPlayer.playStatusCheck();
         }
 
-        public void getWinner(BlackJackGame bPlayer){
-                //if(dealer.blackJ )
+        public void getWinner(BlackJackPlayer bPlayer){
+                if(!bPlayer.bust && bPlayer.blackJhandValue() > dealer.blackJhandValue()){
+                        bPlayer.win = true;
+                }
+
+//                if()
         }
+
+        //Piece together here
+
 
 
 

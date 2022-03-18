@@ -108,7 +108,7 @@ class BlackJackGameTest2 {
         players.get(0).getHand().listCard();
         System.out.println(players.get(0).blackJhandValue());
 
-        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        testGame.playerPhase(players.get(0), testGame.blackJackDeck, choice);
         players.get(0).getHand().listCard();
         System.out.println(players.get(0).blackJhandValue());
         //players.get(1).getHand().listCard();
@@ -129,7 +129,7 @@ class BlackJackGameTest2 {
         //Player1 Hand
         System.out.println("Player 1");
 
-        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        testGame.playerPhase(players.get(0), testGame.blackJackDeck, choice);
         players.get(0).getHand().listCard();
         System.out.println(players.get(0).blackJhandValue());
         System.out.println(players.get(0).stand);
@@ -151,7 +151,7 @@ class BlackJackGameTest2 {
         //Player1 Hand
         System.out.println("Player 1");
 
-        testGame.playerHitMe(players.get(0), testGame.blackJackDeck, choice);
+        testGame.playerPhase(players.get(0), testGame.blackJackDeck, choice);
         players.get(0).getHand().listCard();
         System.out.println(players.get(0).blackJhandValue());
         System.out.println(players.get(0).playStatusCheck());
@@ -255,7 +255,7 @@ class BlackJackGameTest2 {
     }
 
     @Test
-    void playAceTest() {          //Dealing to players and
+    void playAceTest() {          //Test Ace Condition
 
         //Given
         BlackJackGame testGame = new BlackJackGame();
@@ -276,6 +276,23 @@ class BlackJackGameTest2 {
         players.get(0).getHand().listCard();
         System.out.println(players.get(0).blackJhandValue());
         //players.get(1).getHand().listCard();
+
+    }
+
+    @Test
+    void dealerNaturalPhaseTest(){
+
+        BlackJackGame testGame = new BlackJackGame();
+
+        players.add(player1);
+        players.add(player2);
+        testGame.blackJackDeal(players);
+
+        System.out.println("\nDealt Cards\n");
+
+//        players.get(0).getHand().listCard();
+//        players.get(1).getHand().listCard();
+        testGame.dealer.dealerNaturalPhase();
 
     }
 
