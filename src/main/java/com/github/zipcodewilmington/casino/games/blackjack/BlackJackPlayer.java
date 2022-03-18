@@ -100,7 +100,7 @@ public class BlackJackPlayer implements PlayerInterface {
         return !bust && !stand;
     }
 
-    public void playerPhase(){
+    public void playerHand(){
         getHand().listCard();
         System.out.println("Hand Value is " + blackJhandValue());
         blackOrBust();

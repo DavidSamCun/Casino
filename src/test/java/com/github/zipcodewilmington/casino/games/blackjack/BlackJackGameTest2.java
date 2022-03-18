@@ -293,4 +293,44 @@ class BlackJackGameTest2 {
 
     }
 
+    @Test
+    void winStatusTest (){
+
+        BlackJackGame testGame = new BlackJackGame();
+        String choice = "hit";
+
+        players.add(player1);
+        players.add(player2);
+        testGame.blackJackDeal(players);                //Deal Phase
+
+        for (int i = 0; i< players.size(); i++){                //Natural Phase players
+            System.out.println("\nPlayer " + (i+1) + " Hand");
+            players.get(i).playerHand();
+        }
+
+        System.out.println("\nPlayer 1");
+        testGame.playerPhase(players.get(0), testGame.blackJackDeck, choice);
+
+        System.out.println("\nPlayer 2");
+        testGame.playerPhase(players.get(1), testGame.blackJackDeck, choice);
+
+        System.out.println("\nDealer");
+        testGame.dealer.dealerNaturalPhase();
+        testGame.dealer.dealerHit(testGame.blackJackDeck);
+        System.out.println("\nDealer after Deal");
+        testGame.dealer.playerHand();
+
+
+        System.out.println("\nChecking Winners\n");
+        for (BlackJackPlayer player: players) {
+            testGame.getWinner(player);
+        }
+
+        int playVal = 1;
+        for (BlackJackPlayer player: players) {
+            System.out.println("Player " + playVal + " " + player.win);
+            playVal++;
+        }
+    }
+
 }

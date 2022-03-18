@@ -63,7 +63,7 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 switch (choice.toLowerCase(Locale.ROOT)) {
                         case "hit":
                                 bPlayer.hitMe(bDeck);
-                                bPlayer.playStatusCheck();
+                                bPlayer.playerHand();
                                 break;
                         case "stand":
                                 bPlayer.stand = true;

@@ -73,7 +73,7 @@ public class BlackJackEngine extends GameEngine {
         blkjk.dealer.dealerNaturalPhase();              //Show Dealer Hands
         for (BlackJackPlayer player : players) {        //Player Play Phase
             while (player.playStatusCheck()) {
-                player.playerPhase();
+                player.playerHand();
                 System.out.println("Hit or Statnd?");
                 choice = in.nextLine();
                 blkjk.playerPhase(player,blkjk.blackJackDeck,choice);
@@ -91,7 +91,7 @@ public class BlackJackEngine extends GameEngine {
     public void naturalCheck (ArrayList<BlackJackPlayer> bPlayers){
         for (int i = 0; i< bPlayers.size(); i++){
             System.out.println("\nPlayer " + (i+1) + " Hand");
-            bPlayers.get(i).playerPhase();
+            bPlayers.get(i).playerHand();
         }
     }
 
