@@ -13,21 +13,26 @@ public class TicTacToePlayer implements PlayerInterface {
   }
 
   public int[] getMove() {
+      int x=0,y=0;
       Scanner scanner = new Scanner(System.in);
-      int x =0, y =0;
-      try{
-          System.out.println("Please enter a column number: ");
-          x = scanner.nextInt();
-      }catch (InputMismatchException e){
-          System.out.println(" "+scanner.next()+ " isn't a number!");
-      }
-      try{
-          System.out.println("Please enter a row number: ");
-          y = scanner.nextInt();
-      }catch (InputMismatchException e){
-          System.out.println(" "+scanner.next()+ " isn't a number!");
-      }
+     // try{
+          System.out.println("Please enter where you want to move(0-2)(eg 0 0):");
+          String input = scanner.nextLine();
+          String[] arrayString = input.split(" ");
+          x = Integer.valueOf(arrayString[0]);
+          y = Integer.valueOf(arrayString[1]);
+    //  }catch (InputMismatchException e){
+       //   System.out.println(" "+scanner.next()+ " isn't a number!");
+    //  }
+    //  try{
+//          System.out.println("Please enter a row number:");
+//         int  y = scanner.nextInt();
+    //  }catch (InputMismatchException e){
+     //     System.out.println(" "+scanner.next()+ " isn't a number!");
+     // }
       //ask for move
+      //scanner.close();
+
       return new int[]{x,y};
   }
 }

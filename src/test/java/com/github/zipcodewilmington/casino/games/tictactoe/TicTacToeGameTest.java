@@ -14,4 +14,11 @@ class TicTacToeGameTest {
                 {'X', 'X', 'O'}};
         tt.printBoard();
     }
+
+    @Test
+    void turn() {
+        TicTacToeGame tt = new TicTacToeGame();
+        tt.turn(new int[]{1, 1},'X');
+        tt.printBoard();
+    }
 }

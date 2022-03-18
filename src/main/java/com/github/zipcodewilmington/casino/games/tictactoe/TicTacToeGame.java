@@ -57,7 +57,7 @@ public class TicTacToeGame extends Game {
         while(!foundNull){
             for(int i =0; i<=2;i++){
                 for(int j = 0; j<=2;j++){
-                    if(board[i][j] == null)
+                    if(board[i][j] == ' ')
                         return true;
                 }
             }
@@ -144,20 +144,22 @@ public class TicTacToeGame extends Game {
         return "Tie";
     }
 
-     public void printBoard(){
-        for(int i = 0; i <=2; i++){
-             for (int j = 0; j <= 2;j++){
-                 if(board[i][j] != null) {
+     public void printBoard() {
+         for (int i = 0; i <= 2; i++) {
+             for (int j = 0; j <= 2; j++) {
+                 if (board[i][j] != null) {
                      System.out.print(board[i][j] + "");
                  } else System.out.println(" ");
-                 if(j<2){
+                 if (j < 2) {
                      System.out.print("|");
                  }
 
-                 }
-            if(i<2){
-                System.out.println("\n--+--+--");
+             }
+             if (i < 2) {
+                 System.out.println("\n-+-+-");
+             }
          }
+         System.out.println("\n");
      }
-     }
+
 }
