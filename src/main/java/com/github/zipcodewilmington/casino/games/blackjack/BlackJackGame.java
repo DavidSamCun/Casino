@@ -16,6 +16,7 @@ public class BlackJackGame extends Game implements GamblingInterface {
 
         public DeckOfCards blackJackDeck = new DeckOfCards("BlackJack");
         public BlackJackPlayer dealer = new BlackJackPlayer();
+
         //public Hand dealer = new Hand("Dealer");
 
         public void BlackJackGame(){

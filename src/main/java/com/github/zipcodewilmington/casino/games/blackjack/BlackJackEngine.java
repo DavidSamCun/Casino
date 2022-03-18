@@ -11,9 +11,11 @@ import java.util.List;
 
 public class BlackJackEngine extends GameEngine {
 
-    public BlackJackEngine(BlackJackGame game, ArrayList<TicTacToePlayer> players) {
+    public BlackJackEngine(BlackJackGame game, ArrayList<BlackJackPlayer> players) {
         super(game, players);
     }
+
+
 
 //    public void addPlayer(Person player){
 //        this.
