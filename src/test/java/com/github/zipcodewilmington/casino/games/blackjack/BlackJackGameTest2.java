@@ -64,6 +64,27 @@ class BlackJackGameTest2 {
         System.out.println("New Deck " + testGame.blackJackDeck.size() );
     }
 
+    @Test
+    void valueTest() {          //Dealing to players and
 
+        //Given
+        BlackJackGame testGame = new BlackJackGame();
+        players.add(player1);
+        //players.add(player2);
+
+        //When
+        testGame.blackJackDeal(players);
+
+            //Player1 Hand
+        System.out.println("Player 1");
+        players.get(0).getHand().listCard();
+        System.out.println(players.get(0).blackJhandValue());
+        //players.get(1).getHand().listCard();
+
+        System.out.println("\nDealer\n");
+        testGame.dealer.getHand().listCard();
+        System.out.println(testGame.dealer.blackJhandValue());
+
+    }
 
 }

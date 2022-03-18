@@ -44,7 +44,7 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
     //    public getHand(){
 //        this.han
 
-    public int BlackJhandValue() {  //Check for ACE later
+    public int blackJhandValue() {  //Check for ACE later
         int value = 0;
         Boolean AceExists = false;
         int aceCount = 0;
@@ -79,14 +79,20 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
         deck.deal(hand,1);
     }
 
+    public void dealerHit(DeckOfCards deck){
+        while(blackJhandValue() < 17){
+            hitMe(deck);
+        }
+    }
+
     public void bustCheck(){
-        if (BlackJhandValue() > 21){
+        if (blackJhandValue() > 21){
             bust = true;
         }
     }
 
     public void blackJackCheck(){
-        if(BlackJhandValue() == 21){
+        if(blackJhandValue() == 21){
             blackJ = true;
         }
     }
@@ -95,10 +101,10 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
         stand = true;
     }
 
-    public void reset(BlackJackPlayer bPlayer){
-        bPlayer.stand = false;
-        bPlayer.bust = false;
-        bPlayer.win = false;
+    public void reset(){
+        stand = false;
+        bust = false;
+        win = false;
     }
 
 
