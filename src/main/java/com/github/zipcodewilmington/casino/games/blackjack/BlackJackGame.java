@@ -8,6 +8,8 @@ import com.github.zipcodewilmington.casino.items.Cards.Hand;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class BlackJackGame extends Game implements GamblingInterface {
 
@@ -16,7 +18,7 @@ public class BlackJackGame extends Game implements GamblingInterface {
 
         public DeckOfCards blackJackDeck = new DeckOfCards("BlackJack");
         public BlackJackPlayer dealer = new BlackJackPlayer();
-
+        Scanner scanner = new Scanner(System.in);
         //public Hand dealer = new Hand("Dealer");
 
         public void BlackJackGame(){
@@ -37,7 +39,26 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 }
         }
 
+        public void playerPlay(ArrayList<BlackJackPlayer> players, DeckOfCards deck){
+                boolean stand = false;
+                String choice = "";
+                for (int i = 0; i < players.size(); i++){
+                        System.out.println("Player " + (i + 1));
+                        while(!players.get(i).bust && players.get(i).getHand().BlackJhandValue() < 21 && !stand){
+                                System.out.println("Hit or Stand?");
+                                choice = scanner.nextLine();
+                                switch (choice.toLowerCase(Locale.ROOT)){
+                                        case "hit":
+                                                players.get(i).hitMe(deck);
+                                                break;
+                                        case "stand":
+                                                stand = true;
+                                }
 
+                        }
+
+                }
+        }
 
 
 
