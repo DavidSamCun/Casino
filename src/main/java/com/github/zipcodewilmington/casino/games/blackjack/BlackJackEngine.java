@@ -16,16 +16,13 @@ public class BlackJackEngine extends GameEngine {
     }
 
 
-
-//    public void addPlayer(Person player){
-//        this.
-//    }
+    boolean gameOver = false;
+    //Game blackJack = getGame();
+    BlackJackGame blackJack = new BlackJackGame();
 
     @Override
     public void start() {
-
-
-
+        gameOver = false;
     }
 
     @Override
@@ -35,12 +32,19 @@ public class BlackJackEngine extends GameEngine {
 
     @Override
     public void exitGame() {
-
+        gameOver = true;
     }
 
     @Override
     public void replay() {
 
+    }
+
+
+    public void playingGame(){
+        while (!gameOver){
+            blackJack.
+        }
     }
 
 

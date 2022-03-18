@@ -81,6 +81,10 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 return bPlayer.playStatusCheck();
         }
 
+        public void getWinner(BlackJackGame bPlayer){
+                //if(dealer.blackJ )
+        }
+
 
 
 }
