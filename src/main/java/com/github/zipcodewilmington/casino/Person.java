@@ -13,6 +13,7 @@ public class Person implements PlayerInterface{
         this.fName = fName;
     }
 
+
     public String getlName() {
         return lName;
     }

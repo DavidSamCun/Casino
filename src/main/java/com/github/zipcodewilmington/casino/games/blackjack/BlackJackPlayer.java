@@ -16,6 +16,7 @@ public class BlackJackPlayer extends Person implements PlayerInterface {
     public Boolean win = false;
     public Boolean bust = false;
     public Boolean blackJ = false;
+    public Boolean stand = false;
 
     public BlackJackPlayer(){
         this.name = name;

@@ -3,6 +3,7 @@ package com.github.zipcodewilmington.casino.games.blackjack;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -105,7 +106,6 @@ class BlackJackGameTest2 {
         System.out.println("Remaining Cards " + testGame.blackJackDeck.size());
 
     }
-
 
 
 }
