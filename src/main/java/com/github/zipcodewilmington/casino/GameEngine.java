@@ -5,7 +5,7 @@ import com.github.zipcodewilmington.casino.games.tictactoe.TicTacToePlayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GameEngine <PlayerType extends PlayerInterface,GameType extends Game> implements GameEngineInterface {
+public abstract class GameEngine <PlayerType,GameType extends Game> implements GameEngineInterface {
     public GameType game;
     public List<PlayerType> players = new ArrayList<>();
 

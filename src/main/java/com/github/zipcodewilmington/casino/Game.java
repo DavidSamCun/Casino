@@ -1,15 +1,11 @@
 package com.github.zipcodewilmington.casino;
 
-public abstract class Game {
+public abstract class Game<T,S> {
     // determine if there is a winner
-    public boolean isWinner(){
-        return false;
-    }
-    //players take turns
-    public String turn(Object move,Object marker){
+    public abstract boolean isWinner();
 
-        return null;
-    }
+    //players take turns
+    public abstract String turn(T move,S marker);
     //
 
 }

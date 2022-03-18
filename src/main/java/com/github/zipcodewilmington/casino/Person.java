@@ -1,6 +1,6 @@
 package com.github.zipcodewilmington.casino;
 
-public class Person implements PlayerInterface{
+public class Person {
 
     public int getFunds() {
         return funds;

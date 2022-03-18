@@ -18,7 +18,7 @@ class TicTacToeGameTest {
     @Test
     void turn() {
         TicTacToeGame tt = new TicTacToeGame();
-        tt.turn(new int[]{1, 1},'X');
+        tt.turn("1 1",'X');
         tt.printBoard();
     }
 }
