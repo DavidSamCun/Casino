@@ -31,14 +31,16 @@ class BlackJackGameTest2 {
 
         players.add(player1);
         players.add(player2);
-
+        testGame.blackJackDeck.listCard();
         testGame.blackJackDeal(players);
+
+        System.out.println("\nDealt Cards\n");
 
         players.get(0).getHand().listCard();
         players.get(1).getHand().listCard();
         testGame.dealer.getHand().listCard();
 
-        System.out.println("Remaining Cards");
+        System.out.println("\nRemaining Cards\n");
         testGame.blackJackDeck.listCard();
 
     }
@@ -62,50 +64,6 @@ class BlackJackGameTest2 {
         System.out.println("New Deck " + testGame.blackJackDeck.size() );
     }
 
-    @Test
-    void dealAndValue() {          //Dealing to players WIthout ACE SCENARIO
-
-        BlackJackGame testGame = new BlackJackGame();
-
-        players.add(player1);
-
-        testGame.blackJackDeal(players);
-        System.out.println("Player 1");
-        players.get(0).getHand().listCard();
-        players.get(0).getHand().BlackJhandValue();
-        System.out.println(players.get(0).getHand().BlackJhandValue());
-
-        System.out.println("Dealer");
-        testGame.dealer.getHand().listCard();
-        testGame.dealer.getHand().BlackJhandValue();
-        System.out.println(testGame.dealer.getHand().BlackJhandValue());
-
-    }
-
-    @Test
-    void hitAndValue() {          //Dealing to players WIthout ACE SCENARIO
-
-        BlackJackGame testGame = new BlackJackGame();
-
-        players.add(player1);
-
-        testGame.blackJackDeal(players);
-        System.out.println("Player 1");
-        players.get(0).hitMe(testGame.blackJackDeck);
-        players.get(0).getHand().listCard();
-        players.get(0).getHand().BlackJhandValue();
-        System.out.println(players.get(0).getHand().BlackJhandValue());
-
-        System.out.println("Dealer");
-        testGame.dealer.hitMe(testGame.blackJackDeck);
-        testGame.dealer.getHand().listCard();
-        testGame.dealer.getHand().BlackJhandValue();
-        System.out.println(testGame.dealer.getHand().BlackJhandValue());
-
-
-        System.out.println("Remaining Cards " + testGame.blackJackDeck.size());
-
-    }
 
 
 }

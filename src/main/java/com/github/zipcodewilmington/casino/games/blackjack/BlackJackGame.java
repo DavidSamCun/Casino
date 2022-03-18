@@ -16,12 +16,12 @@ public class BlackJackGame extends Game implements GamblingInterface {
 //        public DeckOfCards blackJackDeck;
 //        public Hand dealer;
 
-        public DeckOfCards blackJackDeck = new DeckOfCards("BlackJack");
-        public BlackJackPlayer dealer = new BlackJackPlayer();
+        public DeckOfCards blackJackDeck;
+        public BlackJackPlayer dealer;
         Scanner in = new Scanner(System.in);
         //public Hand dealer = new Hand("Dealer");
 
-        public void BlackJackGame(){
+        public BlackJackGame(){
                 this.blackJackDeck = new DeckOfCards("BlackJack");
                 this.dealer = new BlackJackPlayer();
         }
@@ -39,55 +39,31 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 }
         }
 
-        public void playerPlay(ArrayList<BlackJackPlayer> players, DeckOfCards deck){
-                boolean stand = false;
-                int choice = 0;
-                for (int i = 0; i < players.size(); i++){
-                        System.out.println("Player " + (i + 1));
-                        while(!players.get(i).bust && players.get(i).getHand().BlackJhandValue() < 21 && !stand){
-                                //System.out.println("Hit or Stand?");
-                                choice = in.nextInt();
-                                switch (choice){
-                                        case 1:
-                                                players.get(i).hitMe(deck);
-                                                break;
-                                        case 2:
-                                                stand = true;
-                                }
-                                System.out.println(players.get(i).getHand().BlackJhandValue());
-                                if(players.get(i).getHand().BlackJhandValue()>21){
-                                        players.get(i).bust = true;
-                                }
 
-                        }
-
-                }
-        }
-
-        public void playerPlay2(BlackJackPlayer bPlayer, DeckOfCards deck){
-                boolean stand = false;
-                Scanner scanner = new Scanner(System.in);
-                String choice = "";
-                System.out.println("Hit or Stand?");
-                choice = scanner.nextLine();
-                        System.out.println("Player Turn");
-                        while(!bPlayer.bust && bPlayer.getHand().BlackJhandValue() < 21 && !stand){
-                                System.out.println("Hit or Stand?");
-                                switch (choice.toLowerCase(Locale.ROOT)){
-                                        case "hit":
-                                                bPlayer.hitMe(deck);
-                                                break;
-                                        case "stand":
-                                                stand = true;
-                                                break;
-                                }
-                                System.out.println(bPlayer.getHand().BlackJhandValue());
-                                if(bPlayer.getHand().BlackJhandValue()>21){
-                                        bPlayer.bust = true;
-                                }
-                        }
-        }
-
+//        public void playerPlay(ArrayList<BlackJackPlayer> players, DeckOfCards deck){
+//                boolean stand = false;
+//                int choice = 0;
+//                for (int i = 0; i < players.size(); i++){
+//                        System.out.println("Player " + (i + 1));
+//                        while(!players.get(i).bust && players.get(i).getHand().BlackJhandValue() < 21 && !stand){
+//                                //System.out.println("Hit or Stand?");
+//                                choice = in.nextInt();
+//                                switch (choice){
+//                                        case 1:
+//                                                players.get(i).hitMe(deck);
+//                                                break;
+//                                        case 2:
+//                                                stand = true;
+//                                }
+//                                System.out.println(players.get(i).getHand().BlackJhandValue());
+//                                if(players.get(i).getHand().BlackJhandValue()>21){
+//                                        players.get(i).bust = true;
+//                                }
+//
+//                        }
+//
+//                }
+//        }
 
         public void hitMe(BlackJackPlayer bPlayer, DeckOfCards bDeck, String choice) {
                 switch (choice.toLowerCase(Locale.ROOT)) {
@@ -100,10 +76,8 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 }
         }
 
-        public void reset(BlackJackPlayer bPlayer){
-                bPlayer.stand = false;
-                bPlayer.bust = false;
-                bPlayer.win = false;
+        public boolean playStatus(BlackJackPlayer bPlayer){
+                return bPlayer.playStatusCheck();
         }
 }
 

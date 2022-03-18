@@ -14,7 +14,7 @@ public class Hand extends CardCollections {
 
     }
 
-    public int BlackJhandValue() {
+/*    public int BlackJhandValue() {
         int value = 0;
         Boolean AceExists = false;
 
@@ -37,6 +37,6 @@ public class Hand extends CardCollections {
         //System.out.println(AceExists);
 
         return value;
-    }
+    }*/
 
 }
