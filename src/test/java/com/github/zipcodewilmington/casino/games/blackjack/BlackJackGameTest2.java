@@ -1,12 +1,9 @@
 package com.github.zipcodewilmington.casino.games.blackjack;
 
 import com.github.zipcodewilmington.casino.items.Cards.Card;
-import com.github.zipcodewilmington.casino.items.Cards.CardValue;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static com.github.zipcodewilmington.casino.items.Cards.CardValue.ACE;
 import static com.github.zipcodewilmington.casino.items.Cards.Suit.HEARTS;

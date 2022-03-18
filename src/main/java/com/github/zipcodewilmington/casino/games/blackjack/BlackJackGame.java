@@ -2,23 +2,15 @@ package com.github.zipcodewilmington.casino.games.blackjack;
 
 import com.github.zipcodewilmington.casino.GamblingInterface;
 import com.github.zipcodewilmington.casino.Game;
-import com.github.zipcodewilmington.casino.items.Cards.CardCollections;
 import com.github.zipcodewilmington.casino.items.Cards.DeckOfCards;
-import com.github.zipcodewilmington.casino.items.Cards.Hand;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Locale;
-import java.util.Scanner;
 
 public class BlackJackGame extends Game implements GamblingInterface {
 
-//        public DeckOfCards blackJackDeck;
-//        public Hand dealer;
-
         public DeckOfCards blackJackDeck;
         public BlackJackPlayer dealer;
-        Scanner in = new Scanner(System.in);
 
         public BlackJackGame(){
                 this.blackJackDeck = new DeckOfCards("BlackJack");
@@ -31,8 +23,8 @@ public class BlackJackGame extends Game implements GamblingInterface {
 
         public void blackJackDeal(ArrayList<BlackJackPlayer> players){                     //Deals to players
                 for( int i = 0; i<2; i++){
-                        for(int j = 0; j < players.size(); j++){
-                                blackJackDeck.deal(players.get(j).getHand(), 1);
+                        for (BlackJackPlayer player : players) {
+                                blackJackDeck.deal(player.getHand(), 1);
                         }
                         blackJackDeck.deal(dealer.getHand(), 1);
                 }
@@ -85,18 +77,17 @@ public class BlackJackGame extends Game implements GamblingInterface {
                 return bPlayer.playStatusCheck();
         }
 
-        public void getWinner(BlackJackPlayer bPlayer){
-                if(!bPlayer.bust && bPlayer.blackJhandValue() > dealer.blackJhandValue()){
+        public void getWinner(BlackJackPlayer bPlayer) {
+                if (bPlayer.blackJ && !dealer.blackJ) {
                         bPlayer.win = true;
+                } else if (!bPlayer.bust && dealer.bust) {
+                        bPlayer.win = true;
+                } else if (!bPlayer.bust && !dealer.bust) {
+                        if (bPlayer.blackJhandValue() > dealer.blackJhandValue()) {
+                                bPlayer.win = true;
+                        }
                 }
-
-//                if()
         }
-
-        //Piece together here
-
-
-
 
 }
 
