@@ -15,11 +15,12 @@ public class BlackJackGame extends Game implements GamblingInterface {
 //        public Hand dealer;
 
         public DeckOfCards blackJackDeck = new DeckOfCards("BlackJack");
-        public Hand dealer = new Hand("Dealer");
+        public BlackJackPlayer dealer = new BlackJackPlayer();
+        //public Hand dealer = new Hand("Dealer");
 
         public void BlackJackGame(){
                 this.blackJackDeck = new DeckOfCards("BlackJack");
-                this.dealer = new Hand("Dealer");
+                this.dealer = new BlackJackPlayer();
         }
 
         public void newDeck(){
@@ -31,9 +32,11 @@ public class BlackJackGame extends Game implements GamblingInterface {
                         for(int j = 0; j < players.size(); j++){
                                 blackJackDeck.deal(players.get(j).getHand(), 1);
                         }
-                        blackJackDeck.deal(dealer, 1);
+                        blackJackDeck.deal(dealer.getHand(), 1);
                 }
         }
+
+
 
 
 
