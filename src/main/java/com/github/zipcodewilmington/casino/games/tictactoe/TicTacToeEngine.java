@@ -14,9 +14,9 @@ public class TicTacToeEngine extends GameEngine {
 
 
     public void start() {
-        String result = "";
+        String result;
         char markerX = 'X', markerY = 'Y';
-        int[] move = new int[2];
+        int[] move;
             while (!game.isWinner()) {
                 for (int x = 0; x < players.size(); x++) {
                     TicTacToePlayer player = (TicTacToePlayer) players.get(x);

@@ -6,7 +6,7 @@ public abstract class Game {
         return false;
     }
     //players take turns
-    public String turn(int[] move,char marker){
+    public String turn(Object move,Object marker){
 
         return null;
     }

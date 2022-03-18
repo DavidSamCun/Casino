@@ -13,6 +13,8 @@ public class RoulettePlayer implements PlayerInterface{
         this.player = player;
     }
 
+
+
     public Integer makeMove(){
         Scanner scanner = new Scanner(System.in);
         int x =0;
@@ -26,6 +28,14 @@ public class RoulettePlayer implements PlayerInterface{
         //ask for move
         return x;
     }
-         //choose number
+
+    public int getFunds() {
+       return (player.getFunds());
+    }
+
+    public void setFunds(int i) {
+        player.setFunds(i);
+    }
+    //choose number
         //place bet }
 }

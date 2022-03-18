@@ -20,6 +20,11 @@ public class Person implements PlayerInterface{
 
     public String fName;
     private String lName;
+
+    public void setFunds(int funds) {
+        this.funds = funds;
+    }
+
     private int funds;
 
     public CasinoAccount getArcadeAccount() {
