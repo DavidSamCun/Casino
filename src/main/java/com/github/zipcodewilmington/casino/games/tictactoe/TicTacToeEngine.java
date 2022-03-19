@@ -15,37 +15,36 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
     public void start() {
         String result;
-        //char markerX = 'X', markerO = 'O';
+        char markerX = 'X', markerO = 'O';
         String move;
             game.printBoard();
-            while (!game.isWinner() || (game.boardFull())) {
+            while (!game.isWinner() || (!game.boardFull())) {
                for (int x = 0; x < players.size(); x++) {
                     TicTacToePlayer player = players.get(x);
                     do {
                         move = player.getMove();
                         if (x == 0) {
-//                            result = game.turn(move, markerX);
-//                            if(game.isWinner()){
-//                                System.out.println("Winner is "+player.player.fName);
-//                                return ;
-                           result =  moveX(player,move);
-                            if(!(getWinner(player) != " ")) {
-                                System.out.println(getWinner(player));
-                                break;
-                            }
-
-                           // }
-                        } else {
-                            result = moveO(player,move);
-//                            result = game.turn(move, markerO);
-//                            if(game.isWinner()){
-//                                System.out.println("Winner is " +player.player.fName);
-//                                return ;
+                            result = game.turn(move, markerX);
+                            if(game.isWinner()){
+                                System.out.println("Winner is "+player.player.fName);
+                                return ;
+//                           result =  moveX(player,move);
+//                            if(!(getWinner(player).equals(" "))) {
+//                                System.out.println(getWinner(player));
+//                                return;
 //                            }
-                           if(!getWinner(player).equals(" ")) {
-                               System.out.println(getWinner(player));
-                               break;
-                           }
+
+                            }
+                        } else {
+                           // result = moveO(player,move);
+                            result = game.turn(move, markerO);
+                            if(game.isWinner()){
+                                System.out.println("Winner is " +player.player.fName);
+                                return ;
+                            }
+//                           if(!getWinner(player).equals(" ")) {
+//                               System.out.println(getWinner(player));
+//                           }
                         }
                         if(result.equals("Not a valid Move")){
                             System.out.println(result);
