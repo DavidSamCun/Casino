@@ -1,6 +1,6 @@
 package com.github.zipcodewilmington.casino;
 
-public class Person implements PlayerInterface{
+public class Person {
 
     public int getFunds() {
         return funds;
@@ -20,6 +20,11 @@ public class Person implements PlayerInterface{
 
     public String fName;
     private String lName;
+
+    public void setFunds(int funds) {
+        this.funds = funds;
+    }
+
     private int funds;
 
 

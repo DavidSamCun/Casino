@@ -2,8 +2,12 @@ package com.github.zipcodewilmington.casino.games.tictactoe;
 
 import com.github.zipcodewilmington.casino.Game;
 
-public class TicTacToeGame extends Game {
-    private Character [][] board;
+public class TicTacToeGame extends Game<String,Character> {
+    Character [][] board;
+
+    public TicTacToeGame(){
+        board = new Character[][]{{' ', ' ', ' '}, {' ', ' ', ' '},{' ',' ',' '}};
+    }
 
     @Override
     public boolean isWinner() {
@@ -11,18 +15,53 @@ public class TicTacToeGame extends Game {
         if(isInFavorOfX() || isInFavorOfO()){
             return true;
         }
-        return super.isWinner();
-    }
-    public void turn(){
-        //player turn pick a square update the board
-        // cpu turn pick a remaining spot
-
-        // return to play
+        return false;
     }
 
+    @Override
+    public String turn(String move, Character marker) {
+        String[] arrayString = move.split(" ");
+        int x = Integer.valueOf(arrayString[0]);
+        int y = Integer.valueOf(arrayString[1]);
+        if (!boardFull()) {
+            if (board[x][y] == ' ') {
+                board[x][y] = marker;
+                printBoard();
+            } else return "Not a valid Move";
+            // return to play
+        }else return "Board Full";
+        return "Move Complete";
+    }
+
+//    public String turn(int[] move, char marker){
+//        //player turn pick a square update the board
+//        printBoard();
+//        if (!boardFull()) {
+//            if (board[move[0]][move[1]] == ' ') {
+//                board[move[0]][move[1]] = marker;
+//            } else return "Not a valid Move";
+//            // return to play
+//        }else return "Board Full";
+//        return "Move Complete";
+//    }
 
     public  void board(Character[][] matrix) {
         board = matrix;
+    }
+
+    public boolean boardFull(){
+        boolean foundNull = true;
+        while(foundNull){
+            for(int i =0; i<=2;i++){
+                for(int j = 0; j<=2;j++){
+                    if(board[i][j] == ' ') {
+                        foundNull = false;
+                    }
+                }
+            }
+            break;
+        }
+        return foundNull;
     }
 
     public Boolean checkRows(char answer) {
@@ -104,5 +143,22 @@ public class TicTacToeGame extends Game {
         return "Tie";
     }
 
+     public void printBoard() {
+         for (int i = 0; i <= 2; i++) {
+             for (int j = 0; j <= 2; j++) {
+                 if (board[i][j] != null) {
+                     System.out.print(board[i][j] + "");
+                 } else System.out.println(" ");
+                 if (j < 2) {
+                     System.out.print("|");
+                 }
+
+             }
+             if (i < 2) {
+                 System.out.println("\n-+-+-");
+             }
+         }
+         System.out.println("\n");
+     }
 
 }
