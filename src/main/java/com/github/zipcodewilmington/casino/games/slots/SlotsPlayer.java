@@ -11,11 +11,7 @@ import java.util.Scanner;
 public class SlotsPlayer {
         Scanner scanner = new Scanner(System.in);
 
-        public SlotsPlayer(String firstName, String lastName, int funds) {
-//            super(firstName, lastName, funds);
-        }
+        public SlotsPlayer() {
 
-        public boolean fundsCheck(int funds) {
-            return funds >= 5;
         }
 }
