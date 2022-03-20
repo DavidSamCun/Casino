@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class RoulettePlayer implements PlayerInterface{
     public Person player;
+    Integer move;
 
     public void RoulettePlayer(Person player){
         this.player = player;
@@ -24,8 +25,8 @@ public class RoulettePlayer implements PlayerInterface{
         }catch (InputMismatchException e){
             System.out.println(" "+scanner.next()+ " isn't a number!");
         }
-
         //ask for move
+        move = x;
         return x;
     }
 

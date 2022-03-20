@@ -15,34 +15,36 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
 
     public void start() {
-        String result;
-        String move;
+        String result, move;
+        Boolean gameOver = false;
         game.printBoard();
-            while (!(game.isWinner()) || (game.boardFull())) {
+            while ((!game.isWinner()) || (!gameOver)) {
                for (int x = 0; x < players.size() ; x++) {
                     TicTacToePlayer player = players.get(x);
                     do {
                         move = player.getMove();
                         if (x == 0) {
                             result = game.turn(move, 'X');
-                            String win = getWinner(player);
-                            System.out.println(win);
-                            if ((win.equals( "Winner is " + player.player.fName))||(win.equals("it's a tie!"))) {
-                                break;
-                            }
                         } else {
                             result = game.turn(move, 'O');
-                            String win = getWinner(player);
-                            System.out.println(win);
-                            if ((win.equals( "Winner is " + player.player.fName))|| (win.equals("it's a tie!")))
-                                break;
                         }
                         if(result.equals("Not a valid Move")){
                             System.out.println(result);
                         }
+                        String win = getWinner(player);
+                        System.out.println(win);
+                        if (win.equals( "Winner is " + player.player.fName)) {
+                            gameOver = true;
+                            break;
+                        }
+                        if (win.equals("It is a tie!")){
+                            gameOver = true;
+                            break;
+                        }
                 }while(result.equals("Not a valid Move"));
                 //ask if you want to exit
-
+                   if(gameOver)
+                       break;
             }
 
         }
@@ -50,35 +52,24 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
     }
 
-    public Game getGame() {
-       return this.game = new TicTacToeGame();
+    public TicTacToeGame getGame() {
+       return new TicTacToeGame();
     }
 
     public String getWinner(TicTacToePlayer player){
         if (game.isWinner()) {
           return "Winner is " + player.player.fName;
         }else if (game.boardFull())
-            return "it's a tie!";
+            return "It is a tie!";
         return " ";
     }
 
     public void exitGame() {
-      // Exit game return to casino
-        System.out.println("Thank you for playing!");
+        super.exitGame();
     }
 
-    public void replay() {
-        String input;
-        //Play Again?
-        Scanner scanner = new Scanner(System.in);
-        // try{
-        System.out.println(" Play again? (Y/N): ");
-        input = scanner.nextLine();
-        if(input.toUpperCase().equals("Y") ||(input.toUpperCase().equals("YES"))){
-            this.getGame();
-            this.start();
-        }else exitGame();
-
+    public void replay() {;
+         super.replay();
     }
 
      public static void main(String[] args){

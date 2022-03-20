@@ -18,13 +18,19 @@ public class TicTacToeGame extends Game<String,Character> {
         return false;
     }
 
+    public Boolean checkInts(int x){
+        if((x<3)&&(x>=0))
+            return true;
+        return false;
+    }
+
     @Override
     public String turn(String move, Character marker) {
         String[] arrayString = move.split(" ");
         int x = Integer.valueOf(arrayString[0]);
         int y = Integer.valueOf(arrayString[1]);
         if (!boardFull()) {
-            if (board[x][y] == ' ') {
+            if ((checkInts(x)) && (checkInts(y)) &&(board[x][y] == ' ')) {
                 board[x][y] = marker;
                 printBoard();
             } else return "Not a valid Move";
@@ -32,18 +38,6 @@ public class TicTacToeGame extends Game<String,Character> {
         }else return "Board Full";
         return "Move Complete";
     }
-
-//    public String turn(int[] move, char marker){
-//        //player turn pick a square update the board
-//        printBoard();
-//        if (!boardFull()) {
-//            if (board[move[0]][move[1]] == ' ') {
-//                board[move[0]][move[1]] = marker;
-//            } else return "Not a valid Move";
-//            // return to play
-//        }else return "Board Full";
-//        return "Move Complete";
-//    }
 
     public  void board(Character[][] matrix) {
         board = matrix;
