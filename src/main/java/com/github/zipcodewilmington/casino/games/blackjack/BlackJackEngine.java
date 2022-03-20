@@ -63,8 +63,7 @@ public class BlackJackEngine extends GameEngine {
 
         //Place bets
 
-
-        //while statement
+        //While Loop
         BlackJackGame blkjk = new BlackJackGame();
 
         blkjk.blackJackDeal(players);                   //Deal phase. to players and dealer
@@ -74,17 +73,24 @@ public class BlackJackEngine extends GameEngine {
         for (BlackJackPlayer player : players) {        //Player Play Phase
             while (player.playStatusCheck()) {
                 player.playerHand();
-                System.out.println("Hit or Statnd?");
+                System.out.println("Hit or Stand?");
                 choice = in.nextLine();
                 blkjk.playerPhase(player,blkjk.blackJackDeck,choice);
             }
         }
         blkjk.dealer.dealerHit(blkjk.blackJackDeck);    //Dealer Phase
 
-        //Check Winner Phase
-        for (BlackJackPlayer player : players){
+
+        for (BlackJackPlayer player : players){         //Check Winner Phase
             blkjk.getWinner(player);
         }
+
+        //PayOut
+
+        for(BlackJackPlayer player : players){          //Reset Status
+            player.reset();
+        }
+        blkjk.dealer.reset();
 
     }
 

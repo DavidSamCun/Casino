@@ -1,9 +1,17 @@
 package com.github.zipcodewilmington.casino;
 
-import java.util.Scanner;
-
 public class Person implements PlayerInterface{
-    Scanner scanner = new Scanner(System.in);
+
+    public String name;
+    public int funds;
+    public String fName;
+    public String lName;
+
+    //Scanner scanner = new Scanner(System.in);
+    public Person(String name, int funds){
+        this.name = name;
+        this.funds = funds;
+    }
 
     public int getFunds() {
         return funds;
@@ -22,9 +30,6 @@ public class Person implements PlayerInterface{
         this.lName = lName;
     }
 
-    public String fName;
-    private String lName;
-    private int funds;
 
 
 

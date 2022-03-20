@@ -24,7 +24,7 @@ public class BlackJackPlayer implements PlayerInterface {
     }
 
     public BlackJackPlayer(Person player){  //For the guests
-        this.name = player.fName;
+        this.name = player.name;
         this.hand = new Hand("Hand");
     }
 
