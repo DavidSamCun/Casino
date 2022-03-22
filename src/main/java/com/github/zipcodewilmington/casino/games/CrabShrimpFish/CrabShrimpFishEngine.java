@@ -1,16 +1,13 @@
-package com.github.zipcodewilmington.casino.games.baccarat;
+package com.github.zipcodewilmington.casino.games.CrabShrimpFish;
 
 import com.github.zipcodewilmington.casino.Game;
 import com.github.zipcodewilmington.casino.GameEngine;
-import com.github.zipcodewilmington.casino.GameEngineInterface;
-import com.github.zipcodewilmington.casino.Person;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class BaccaratEngine extends GameEngine {
+public class CrabShrimpFishEngine extends GameEngine {
 
-    public BaccaratEngine(BaccaratGame game, ArrayList<BaccaratPlayer> players) {
+    public CrabShrimpFishEngine(CrabShrimpFishGame game, ArrayList<CrapShrimpFishPlayer> players) {
         super(game, players);
     }
 
