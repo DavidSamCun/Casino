@@ -37,8 +37,9 @@ public class CrabShrimpFishGame extends Game implements GamblingInterface {
         System.out.println("\nChecking winnings............");
         for(int i = 0; i < 6; i++){
             if(player.getPlayerBet2()[i] > 0 && bins.getRollAmount(i+1) > 0){
-                System.out.println("Congrats! You bet on " + i+1 + " and appeared " + bins.getRollAmount(i+1) + " time(s)");
+                System.out.println("Congrats! You bet on " + (i+1) + " and appeared " + bins.getRollAmount(i+1) + " time(s)");
                  winnings = player.getPlayerBet2()[i]*bins.getRollAmount(i+1);
+                 wins++;
             }
         }
         if(wins > 0){
