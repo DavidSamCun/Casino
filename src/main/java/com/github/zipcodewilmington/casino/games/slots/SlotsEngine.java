@@ -18,13 +18,13 @@ public class SlotsEngine extends GameEngine<SlotsPlayer, SlotsGame> {
     @Override
     public void start() {
         SlotsPlayer player = players.get(0);
+        SlotsGame game = new SlotsGame();
         String inputString = "Play Again";
         Integer inputInt = 0;
         do {
             System.out.print("BWAAHWAHAHAHAAHA, BOWSER'S TERROR HAS ARRIVED!\n" +
                     "YOU'LL NEVER CAPTURE ME!\n");
-            System.out.print("Place your bets >:D.\n\n");
-                 inputInt = player.placeBet("[5]  [10]  [20]  [50]  [100]");
+           game.takeBet(player.placeBet("[5]  [10]  [20]  [50]  [100]"), "Place your bets >:D.\n\n");
             if (inputInt != 5 || inputInt != 10 || inputInt != 20 || inputInt != 50 || inputInt != 100 ) {
                 System.out.println("Error, you must pick from the choices above!\n");
                 System.out.print("Place your bets >:(.\n\n");

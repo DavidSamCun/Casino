@@ -16,8 +16,6 @@ public class SlotsGame extends Game implements GamblingInterface{
     private SlotReel[] reel = SlotReel.values();
     public Random rand = new Random();
     SlotReel[] characters = new SlotReel[3];
-    Scanner userString = new Scanner(System.in);
-    Scanner userInt = new Scanner(System.in);
 
 //    public String checkPlayerFunds() {
 //       int funds = slotsPlayer.getFunds();
@@ -26,14 +24,6 @@ public class SlotsGame extends Game implements GamblingInterface{
 //            }
 //            return "Goodbye.";
 //    }
-
-    public String userString() {
-        return userString.next();
-    }
-
-    public Integer userInt() {
-        return userInt.nextInt();
-    }
 
     public SlotReel[] spin() {
         for (int i = 0; i < characters.length; i++) {
@@ -64,7 +54,8 @@ public class SlotsGame extends Game implements GamblingInterface{
         return stringSlotReel;
     }
 
-    public Integer takeBet(Integer input) {
+    public Integer takeBet(Integer input, String message) {
+        System.out.println(message);
         Scanner scanner = new Scanner(System.in);
         boolean bet = ((input == 5) || ((input == 10) || (input == 20) || (input == 50) || (input == 100)));
         while (bet == false) {

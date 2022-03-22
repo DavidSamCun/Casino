@@ -12,6 +12,9 @@ import java.util.Scanner;
  */
 public class SlotsPlayer {
         public Person player;
+        Scanner userString = new Scanner(System.in);
+        Scanner userInt = new Scanner(System.in);
+
         public SlotsPlayer(Person player){
                 this.player = player;
         }
@@ -28,14 +31,22 @@ public class SlotsPlayer {
                 }
         }
 
+        public String userString() {
+                return userString.next();
+        }
+
+        public Integer userInt() {
+                return userInt.nextInt();
+        }
+
 //        public int getNumber(String message) {
 //
 //        }
 
-        public String playChoice() {
-                Scanner scanner1 = new Scanner(System.in);
-                return scanner1.next();
-        }
+//        public String playChoice() {
+//                Scanner scanner1 = new Scanner(System.in);
+//                return scanner1.next();
+//        }
 
 //        public CasinoAccount getCasinoAccount() {
 //                return this.casinoAccount;
