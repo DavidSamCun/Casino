@@ -49,9 +49,15 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
             replay();
     }
 
-    public TicTacToeGame getGame() {
-       return new TicTacToeGame();
+    public String moveO(TicTacToePlayer player, String move){
+        char markerO = 'O';
+        String result = game.turn(move, markerO);
+        return result;
     }
+
+    public TicTacToeGame getGame() {
+       return this.game;
+
 
     public String getWinner(TicTacToePlayer player){
         if (game.isWinner()) {
@@ -71,9 +77,9 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
      public static void main(String[] args){
         TicTacToeGame game = new TicTacToeGame();
-        Person bob = new Person();
+        Person bob = new Person("", 550.00);
         bob.setfName("Bob");
-        Person joe = new Person();
+        Person joe = new Person("", 660.00);
         joe.setfName("Joe");
         TicTacToePlayer bobT = new TicTacToePlayer(bob);
         TicTacToePlayer joeT = new TicTacToePlayer(joe);
