@@ -9,7 +9,7 @@ import com.github.zipcodewilmington.casino.games.tictactoe.TicTacToePlayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlotsEngine extends GameEngine {
+public class SlotsEngine extends GameEngine<SlotsPlayer, SlotsGame> {
 
     public SlotsEngine(SlotsGame game, ArrayList<SlotsPlayer> players) {
         super(game, players);
@@ -17,24 +17,42 @@ public class SlotsEngine extends GameEngine {
 
     @Override
     public void start() {
+        SlotsPlayer player = players.get(0);
+        String inputString = "Play Again";
+        Integer inputInt = 0;
+        do {
+            System.out.print("BWAAHWAHAHAHAAHA, BOWSER'S TERROR HAS ARRIVED!\n" +
+                    "YOU'LL NEVER CAPTURE ME!\n");
+            System.out.print("Place your bets >:D.\n\n");
+                 inputInt = player.placeBet("[5]  [10]  [20]  [50]  [100]");
+            if (inputInt != 5 || inputInt != 10 || inputInt != 20 || inputInt != 50 || inputInt != 100 ) {
+                System.out.println("Error, you must pick from the choices above!\n");
+                System.out.print("Place your bets >:(.\n\n");
+//                inputInt = player.placeBet();
+            }
 
+        } while (inputString.equals("Play Again") || inputString.equals("play again"));
     }
 
+
+
+    //gets new instance of Game
     @Override
-    public Game getGame() {
+    public SlotsGame getGame() {
         return null;
     }
 
+    //stops the loop
     @Override
     public void exitGame() {
 
     }
 
+    //replays the came, calls getGame
     @Override
     public void replay() {
 
     }
-
 
     public Iterable<Person> getPlayers() {
         return null;

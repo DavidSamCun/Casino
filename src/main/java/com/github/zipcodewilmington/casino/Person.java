@@ -1,6 +1,9 @@
 package com.github.zipcodewilmington.casino;
 
 public class Person {
+    public String fName;
+    private String lName;
+
 
     public int getFunds() {
         return funds;
@@ -18,19 +21,14 @@ public class Person {
         this.lName = lName;
     }
 
-    public String fName;
-    private String lName;
-
     public void setFunds(int funds) {
         this.funds = funds;
     }
 
     private int funds;
 
-
-
     public CasinoAccount getArcadeAccount() {
-       return null;
+        return null;
     }
     public <SomeReturnType> SomeReturnType play() {
         return null;

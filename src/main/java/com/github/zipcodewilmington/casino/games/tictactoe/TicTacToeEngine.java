@@ -73,7 +73,7 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
         return result;
     }
 
-    public Game getGame() {
+    public TicTacToeGame getGame() {
        return this.game;
     }
 

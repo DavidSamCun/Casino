@@ -1,5 +1,6 @@
 package com.github.zipcodewilmington.casino.games.roulette;
 
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.Person;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
@@ -35,6 +36,11 @@ public class RoulettePlayer implements PlayerInterface{
 
     public void setFunds(int i) {
         player.setFunds(i);
+    }
+
+    @Override
+    public CasinoAccount getCasinoAccount() {
+        return null;
     }
     //choose number
         //place bet }
