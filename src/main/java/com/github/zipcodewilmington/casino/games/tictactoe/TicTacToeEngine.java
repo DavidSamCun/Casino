@@ -18,7 +18,7 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
         String result, move;
         Boolean gameOver = false;
         game.printBoard();
-            while ((!game.isWinner()) || (!gameOver)) {
+              while(!gameOver){
                for (int x = 0; x < players.size() ; x++) {
                     TicTacToePlayer player = players.get(x);
                     do {
@@ -31,25 +31,22 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
                         if(result.equals("Not a valid Move")){
                             System.out.println(result);
                         }
-                        String win = getWinner(player);
-                        System.out.println(win);
-                        if (win.equals( "Winner is " + player.player.fName)) {
-                            gameOver = true;
-                            break;
-                        }
-                        if (win.equals("It is a tie!")){
-                            gameOver = true;
-                            break;
-                        }
                 }while(result.equals("Not a valid Move"));
-                //ask if you want to exit
-                   if(gameOver)
+                   String win = getWinner(player);
+                   if (win.equals("It is a tie")){
+                       gameOver = true;
+                       System.out.println(win);
                        break;
+                   }
+                   if (win.equals( "Winner is " + player.player.fName)) {
+                       gameOver = true;
+                       System.out.println(win);
+                       break;
+                   }
+                   //ask if you want to exit
             }
-
         }
             replay();
-
     }
 
     public TicTacToeGame getGame() {
@@ -60,7 +57,7 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
         if (game.isWinner()) {
           return "Winner is " + player.player.fName;
         }else if (game.boardFull())
-            return "It is a tie!";
+            return "It is a tie";
         return " ";
     }
 

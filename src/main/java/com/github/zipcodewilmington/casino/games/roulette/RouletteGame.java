@@ -3,15 +3,12 @@ package com.github.zipcodewilmington.casino.games.roulette;
 import com.github.zipcodewilmington.casino.GamblingInterface;
 import com.github.zipcodewilmington.casino.Game;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class RouletteGame extends Game<Integer,Boolean> implements GamblingInterface {
-    ArrayList<Integer> numPicks = new ArrayList<>();
     public static int betCondition = 0;
     static Integer winningNumber;
+    public boolean isThereaWinner = false;
 
     // Take bet
 
@@ -74,10 +71,8 @@ public class RouletteGame extends Game<Integer,Boolean> implements GamblingInter
 
     public boolean isWinner(){
        // return betWon(bet);
-        for (Integer y: numPicks)
-            if(y == winningNumber)
+
             return true;
-        return false;
     }
 
 
