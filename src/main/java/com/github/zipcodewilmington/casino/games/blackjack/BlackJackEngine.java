@@ -109,7 +109,7 @@ public class BlackJackEngine extends GameEngine {
     public void addPlayer(){
         System.out.println("Enter Name");
         String name = in.nextLine();
-        Person player1 = new Person(name, 1000);
+        Person player1 = new Person(name, 1000.00);
         BlackJackPlayer newPlayer = new BlackJackPlayer(player1);
         players.add(newPlayer);
     }

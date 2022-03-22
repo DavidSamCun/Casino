@@ -10,14 +10,15 @@ import java.util.Scanner;
 /**
  * Created by leon on 7/21/2020.
  */
-public class SlotsPlayer {
+public class SlotsPlayer extends Person implements PlayerInterface {
         public Person player;
         Scanner userString = new Scanner(System.in);
         Scanner userInt = new Scanner(System.in);
 
-        public SlotsPlayer(Person player){
-                this.player = player;
+        public SlotsPlayer(String name, Double i) {
+                super(name, i);
         }
+
 
         public int placeBet(String message) {
                 Scanner scanner = new Scanner(System.in);
@@ -37,6 +38,11 @@ public class SlotsPlayer {
 
         public Integer userInt() {
                 return userInt.nextInt();
+        }
+
+        @Override
+        public CasinoAccount getCasinoAccount() {
+                return null;
         }
 
 //        public int getNumber(String message) {

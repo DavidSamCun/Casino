@@ -25,12 +25,12 @@ public class SlotsEngine extends GameEngine<SlotsPlayer, SlotsGame> {
             System.out.print("BWAAHWAHAHAHAAHA, BOWSER'S TERROR HAS ARRIVED!\n" +
                     "YOU'LL NEVER CAPTURE ME!\n");
            game.takeBet(player.placeBet("[5]  [10]  [20]  [50]  [100]"), "Place your bets >:D.\n\n");
-            if (inputInt != 5 || inputInt != 10 || inputInt != 20 || inputInt != 50 || inputInt != 100 ) {
-                System.out.println("Error, you must pick from the choices above!\n");
-                System.out.print("Place your bets >:(.\n\n");
-//                inputInt = player.placeBet();
-            }
+            System.out.println("MUWAHAAHAAAHHAAA! ALRIGHT, LET'S SEE IF YOU CAN CATCH THE MIGHTY BOWSER!\n");
+            System.out.println("[SPIN]");
 
+
+            System.out.println("[Play Again] [Exit]");
+            inputString = String.valueOf(player.userString);
         } while (inputString.equals("Play Again") || inputString.equals("play again"));
     }
 
@@ -45,7 +45,6 @@ public class SlotsEngine extends GameEngine<SlotsPlayer, SlotsGame> {
     //stops the loop
     @Override
     public void exitGame() {
-
     }
 
     //replays the came, calls getGame

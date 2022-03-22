@@ -5,7 +5,7 @@ public class Person {
     private String lName;
     private String name;
 
-    public Person(String name, int i) {
+    public Person(String name, Double i) {
     }
 
 
