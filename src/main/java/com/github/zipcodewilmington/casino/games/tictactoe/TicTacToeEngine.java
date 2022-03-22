@@ -5,6 +5,7 @@ import com.github.zipcodewilmington.casino.GameEngine;
 import com.github.zipcodewilmington.casino.Person;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> {
 
@@ -14,57 +15,38 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
 
     public void start() {
-        String result;
-        //char markerX = 'X', markerO = 'O';
-        String move;
-            game.printBoard();
-            while (!game.isWinner() || (game.boardFull())) {
-               for (int x = 0; x < players.size(); x++) {
+        String result, move;
+        Boolean gameOver = false;
+        game.printBoard();
+              while(!gameOver){
+               for (int x = 0; x < players.size() ; x++) {
                     TicTacToePlayer player = players.get(x);
                     do {
                         move = player.getMove();
                         if (x == 0) {
-//                            result = game.turn(move, markerX);
-//                            if(game.isWinner()){
-//                                System.out.println("Winner is "+player.player.fName);
-//                                return ;
-                           result =  moveX(player,move);
-                            if(!(getWinner(player) != " ")) {
-                                System.out.println(getWinner(player));
-                                break;
-                            }
-
-                           // }
+                            result = game.turn(move, 'X');
                         } else {
-                            result = moveO(player,move);
-//                            result = game.turn(move, markerO);
-//                            if(game.isWinner()){
-//                                System.out.println("Winner is " +player.player.fName);
-//                                return ;
-//                            }
-                           if(!getWinner(player).equals(" ")) {
-                               System.out.println(getWinner(player));
-                               break;
-                           }
+                            result = game.turn(move, 'O');
                         }
                         if(result.equals("Not a valid Move")){
                             System.out.println(result);
                         }
-                        else if (result.equals("Board Full")) {
-                            break;
-                        }
                 }while(result.equals("Not a valid Move"));
-                //ask if you want to exit
-
+                   String win = getWinner(player);
+                   if (win.equals("It is a tie")){
+                       gameOver = true;
+                       System.out.println(win);
+                       break;
+                   }
+                   if (win.equals( "Winner is " + player.player.fName)) {
+                       gameOver = true;
+                       System.out.println(win);
+                       break;
+                   }
+                   //ask if you want to exit
             }
         }
-        System.out.println("It is a tie");
-    }
-
-    public String moveX(TicTacToePlayer player, String move) {
-        char markerX = 'X';
-        String result = game.turn(move, markerX);
-        return result;
+            replay();
     }
 
     public String moveO(TicTacToePlayer player, String move){
@@ -75,24 +57,22 @@ public class TicTacToeEngine  extends GameEngine<TicTacToePlayer,TicTacToeGame> 
 
     public TicTacToeGame getGame() {
        return this.game;
-    }
+
 
     public String getWinner(TicTacToePlayer player){
-        String winner;
         if (game.isWinner()) {
-          winner =  "Winner is " + player.player.fName;
+          return "Winner is " + player.player.fName;
         }else if (game.boardFull())
-            winner = "it's a tie!";
+            return "It is a tie";
         return " ";
     }
 
     public void exitGame() {
-
-
+        super.exitGame();
     }
 
-    public void replay() {
-
+    public void replay() {;
+         super.replay();
     }
 
      public static void main(String[] args){

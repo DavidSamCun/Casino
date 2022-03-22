@@ -5,7 +5,7 @@ public abstract class Game<T,S> {
     public abstract boolean isWinner();
 
     //players take turns
-    public abstract String turn(T move,S marker);
+    public abstract Object turn(T move,S marker);
     //
 
 }
