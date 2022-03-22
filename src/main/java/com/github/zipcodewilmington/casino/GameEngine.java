@@ -13,7 +13,7 @@ public abstract class GameEngine <PlayerType,GameType extends Game> implements G
     public GameEngine(GameType game, List<PlayerType> players) {
         this.game = game;
         for(PlayerType p :players)
-        this.players.add(p);
+            this.players.add(p);
     }
 
     @Override

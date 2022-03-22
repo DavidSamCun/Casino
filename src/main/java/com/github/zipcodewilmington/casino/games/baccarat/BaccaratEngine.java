@@ -5,13 +5,17 @@ import com.github.zipcodewilmington.casino.GameEngine;
 import com.github.zipcodewilmington.casino.GameEngineInterface;
 import com.github.zipcodewilmington.casino.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BaccaratEngine extends GameEngine {
-
-    public BaccaratEngine(Game game, List<Person> players) {
+    public BaccaratEngine(Game game, List players) {
         super(game, players);
     }
+
+//    public BaccaratEngine(BaccaratGame game, ArrayList<BaccaratPlayer> players) {
+//        super(game, players);
+//    }
 
     @Override
     public void start() {
