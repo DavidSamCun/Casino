@@ -19,6 +19,10 @@ public class SlotsPlayer extends Person implements PlayerInterface {
                 super(name, i);
         }
 
+        public SlotsPlayer() {
+                super("", 00.00);
+        }
+
 
         public int placeBet(String message) {
                 Scanner scanner = new Scanner(System.in);
