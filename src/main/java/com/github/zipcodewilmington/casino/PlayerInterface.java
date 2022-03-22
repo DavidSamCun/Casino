@@ -22,6 +22,4 @@ public interface PlayerInterface {
     <SomeReturnType> SomeReturnType play();
 
 
-
-
 }

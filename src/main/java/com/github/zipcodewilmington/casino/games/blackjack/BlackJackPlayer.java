@@ -10,6 +10,7 @@ import com.github.zipcodewilmington.casino.items.Cards.Hand;
 
 public class BlackJackPlayer implements PlayerInterface {
 
+    public Person player;
     private String name;
     private Hand hand;
     public Boolean win = false;
@@ -19,12 +20,17 @@ public class BlackJackPlayer implements PlayerInterface {
     public Boolean stand = false;
 
     public BlackJackPlayer(){               //Default for dealer
-        this.name = "Dealer";
+        this.name = "Player1";
         this.hand = new Hand("hand)");
     }
 
     public BlackJackPlayer(Person player){  //For the guests
-        this.name = player.name;
+        this.name = player.getName();
+        this.hand = new Hand("Hand");
+    }
+
+    public BlackJackPlayer(CasinoAccount player){  //For the guests
+        this.name = player.getAccountName();
         this.hand = new Hand("Hand");
     }
 
@@ -101,6 +107,7 @@ public class BlackJackPlayer implements PlayerInterface {
 
     public void dealerNaturalPhase(){
         blackJackCheck();
+        System.out.println("\nDealer Hand");
         if(blackJ){
             getHand().listCard();
             System.out.println("Dealer has BlackJack");
