@@ -12,7 +12,7 @@ public class RoulettePlayer implements PlayerInterface{
     Integer move;
     String betType;
 
-    public void RoulettePlayer(Person player){
+    public RoulettePlayer(Person player){
         this.player = player;
     }
 

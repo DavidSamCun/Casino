@@ -60,7 +60,7 @@ public class RouletteGame extends Game<Integer,Boolean> implements GamblingInter
         return false;
     }
     //see if bet was won?
-    private static boolean betWon(int bet){
+    public static boolean betWon(int bet){
         if(winningNumber == bet)
             return true;
         return false;
