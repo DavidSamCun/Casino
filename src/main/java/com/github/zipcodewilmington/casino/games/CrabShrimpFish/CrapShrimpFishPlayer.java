@@ -9,31 +9,50 @@ public class CrapShrimpFishPlayer implements PlayerInterface {
 
     private Person player;
     private String name;
-    public Hand hand;
 
     private int funds;
 
     private boolean win = false;
-    private int tieBet;
 
-    private int dealerBet;
-    private int playerBet;
+    private int[] playerBet;
 
     public CrapShrimpFishPlayer(){
         this.name = "Player1";
-        this.hand = new Hand("BlackJack");
+        this.playerBet = new int[6];
+        this.funds = 50000;
+
     }
 
     public CrapShrimpFishPlayer(Person player){
         this.name  = player.getName();
-        this.hand  = new Hand("Hand");
+        this.playerBet = new int[6];
         this.funds = player.getFunds();
     }
 
     public CrapShrimpFishPlayer(String name){
         this.name = name;
-        this.hand = new Hand("Hand");
+        this.playerBet = new int[6];
         this.funds = 50000;
+    }
+
+    public void setPlayerBet(int index, int funds){
+        playerBet[index] = funds;
+    }
+
+    public int getPlayerBet(int index){
+        return playerBet[index];
+    }
+
+    public int[] getPlayerBet2(){
+        return playerBet;
+    }
+
+    public int getFunds(){
+        return funds;
+    }
+
+    public void getWinnings(int winningFunds){
+        funds += winningFunds;
     }
 
 

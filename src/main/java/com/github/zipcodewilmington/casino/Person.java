@@ -19,7 +19,6 @@ public class Person implements PlayerInterface{
         this.name = name;
     }
 
-
     public String getName() {
         return name;
     }
