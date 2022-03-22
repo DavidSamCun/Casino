@@ -3,6 +3,10 @@ package com.github.zipcodewilmington.casino;
 public class Person {
     public String fName;
     private String lName;
+    private String name;
+
+    public Person(String name, int i) {
+    }
 
 
     public int getFunds() {
@@ -32,5 +36,10 @@ public class Person {
     }
     public <SomeReturnType> SomeReturnType play() {
         return null;
+    }
+
+
+    public void getName() {
+        this.name = name;
     }
 }
